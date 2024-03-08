@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
-import Chart from 'react-apexcharts';
+import dynamic from 'next/dynamic';
+
+// import Chart from 'react-apexcharts';
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const Holdings = ({ tokens }) => {
 
@@ -55,7 +58,8 @@ const Holdings = ({ tokens }) => {
           options={options}
           series={series}
           type="pie"
-          width="420"
+          height="300"
+          width="100%"
         />
       </div>
     </div>
